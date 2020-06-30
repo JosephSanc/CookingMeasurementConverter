@@ -6,11 +6,15 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+        //Testing grams conversions
         Grams gram = new Grams();
-        System.out.println(gram.gramsToKilograms(5));
-        System.out.println(gram.gramsToMilligrams(1));
-        System.out.println(gram.gramsToPounds(1));
-        System.out.println(gram.gramsToOunces(1));
+        System.out.println("1 gram to kilograms: " + gram.gramsToKilograms(1));
+        System.out.println("1 gram to milligrams: " + gram.gramsToMilligrams(1));
+        System.out.println("1 gram to pounds: " + gram.gramsToPounds(1));
+        System.out.println("1 gram to ounces: " + gram.gramsToOunces(1));
+
+        
+
 
     }
 }

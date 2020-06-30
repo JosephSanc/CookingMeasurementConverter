@@ -6,18 +6,6 @@ In this class I will write methods to convert grams to:
     - milligrams
     - pounds
     - ounces
-I will also make conversion with dry grams to:
-    - 1/16 teaspoon
-    - 1/8  teaspoon
-    - 1/4  teaspoon
-    - 1/2  teaspoon
-    - teaspoons (this measurement isn't specified because it will be specified by the user)
-    - 1/16 tablespoon
-    - 1/8  tablespoon
-    - 1/4  tablespoon
-    - 1/2  tablespoon
-    - tablespoons
-The same measurment that will be converted from dry grams to x (x being a measurement) will also be done with wet grams
  */
 
 public class Grams {
@@ -61,6 +49,8 @@ public class Grams {
     public double gramsToOunces(double grams){
         return grams / 28.35;
     }
+
+
 
 
 }
