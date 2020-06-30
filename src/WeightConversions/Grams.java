@@ -6,6 +6,9 @@ In this class I will write methods to convert grams to:
     - milligrams
     - pounds
     - ounces
+
+    Author: Joseph Sanchez
+    Date: 6/29/2020
  */
 
 public class Grams {
