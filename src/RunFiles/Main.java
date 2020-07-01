@@ -3,6 +3,8 @@ package RunFiles;
 import WeightConversions.Grams;
 import WeightConversions.Pounds;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
