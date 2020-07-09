@@ -1,0 +1,21 @@
+Have two drop down menus. One will have the "from" conversion and the other will have a "to" conversion.
+There will be a "convert" button that will make the conversion and make the "to" measurement show up in a textfield
+Have a disclaimer when converting from weight to volume that says that conversion is from weight to volume so the
+measurement will be an approximation. Make sure to catch any input/output exceptions or number format exceptions and
+pop up a dialogue box when that is encountered.
+
+------------------------------------------------------------
+|     Welcome to the cooking measurement converter         |
+|                                                          |
+| From: ________ *drop down for measurement options        |
+|                                                          |
+|                                                          |
+| To: __________ *drop down for measuement options         |
+|                                                          |
+|                                                          |
+| *Convert Button ____________ *to measurement             |
+|                                                          |
+|                                                          |
+|      "*Conversion is from volume/mass to mass/volume     |
+|        so conversion will be approximate but not exact"  |
+------------------------------------------------------------
