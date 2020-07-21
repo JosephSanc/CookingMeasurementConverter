@@ -7,7 +7,7 @@ import javax.swing.*;
 public class UserInterface implements Runnable{
 
     private JFrame frame;
-    private Handler handler;
+    private Handler handler = new Handler();
 
     public UserInterface(){
 
@@ -49,16 +49,13 @@ public class UserInterface implements Runnable{
     /**
      * Description: This method creates the comboBox that will be used with the "from" conversion. This method is
      * separate, instead of in the createComponents method so that the code is easier to read and maintain.
+     * Note that this will be used by the Handler class for actions.
      *
      * @return the JPanel that contains the fromComboBox
      */
     public JComboBox<String> fromComboBox(){
         //Creates a combo box to add items to. In our case, those items are strings of units of measure.
         JComboBox<String> fromComboBox = new JComboBox<>();
-
-        //Adding actionListener
-        handler = new Handler();
-        fromComboBox.addActionListener(handler);
 
         //Here we add the strings of units of measure to the combo box as options for the user
         fromComboBox.addItem("Select");
@@ -71,13 +68,17 @@ public class UserInterface implements Runnable{
         fromComboBox.addItem("Teaspoon(tsp)");
         fromComboBox.addItem("Tablespoon(tbsp)");
 
+        //Adding action listener
+        handler.addFromComboBox(fromComboBox);
+
         //When method is called, it returns the comboBox
         return fromComboBox;
     }
 
     /**
      * Description: This method creates the comboBox that will be used with the "to" conversion. This method is
-     * separate, instead of in the createComponents method so that the code is easier to read and maintain.
+     * separate, instead of in the createComponents method so that the code is easier to read and maintain. Note
+     * that this will be used by the Handler class for actions.
      *
      * @return the JPanel that contains the toComboBox
      */
@@ -85,9 +86,6 @@ public class UserInterface implements Runnable{
         //Creates a combo box to add items to. In our case, those items are strings of units of measure.
         JComboBox<String> toComboBox = new JComboBox<>();
 
-        //Adding actionListener
-        handler = new Handler();
-        toComboBox.addActionListener(handler);
 
         //Here we add the strings of units of measure to the combo box as options for the user
         toComboBox.addItem("Select");
@@ -100,13 +98,16 @@ public class UserInterface implements Runnable{
         toComboBox.addItem("Teaspoon(tsp)");
         toComboBox.addItem("Tablespoon(tbsp)");
 
+        //Adding action listener
+        handler.addToComboBox(toComboBox);
+
         //When method is called, it returns the comboBox
         return toComboBox;
     }
 
     /**
      * Description: This method will return a panel that contains the textBox that will hold the converted measurment
-     * value results.
+     * value results. Note that this will be used by the Handler class for actions.
      *
      * @return panel with conversion results
      */
@@ -121,6 +122,9 @@ public class UserInterface implements Runnable{
         JTextField resultTextField = new JTextField(10);
         resultTextField.setEditable(false); //Result will be controlled by program, not by user.
 
+        //Adding actionlistener
+        handler.addResultsTextField(resultTextField);
+
         //Here we add the "Result: " label and text box that will hold the results, to the panel.
         panel.add(resultLabel);
         panel.add(resultTextField);
@@ -131,7 +135,8 @@ public class UserInterface implements Runnable{
 
     /**
      * Description: This method will return a textfield that contains the label that will hold the disclaimer to the user
-     * when converting from volume to weight or the other way around.
+     * when converting from volume to weight or the other way around. Note that this will be used by the Handler class
+     * for actions.
      *
      * @return panel with disclaimer textfield on it.
      */
@@ -140,15 +145,14 @@ public class UserInterface implements Runnable{
         JPanel panel = new JPanel();
 
         //The disclaimer textfield
-        JTextField disclaimerLabel = new JTextField("");//This disclaimer will remain empty until filled by action listener
-        disclaimerLabel.setEditable(false);
+        JTextField disclaimerTextField = new JTextField("");//This disclaimer will remain empty until filled by action listener
+        disclaimerTextField.setEditable(false);
 
-        //Adding actionListener to disclaimer label:
-        handler = new Handler();
-        disclaimerLabel.addActionListener(handler);
+        //adding actionListener to disclaimer text field
+        handler.addDisclaimerTextField(disclaimerTextField);
 
         //Add disclaimer label to panel
-        panel.add(disclaimerLabel);
+        panel.add(disclaimerTextField);
 
         //return the panel
         return panel;
@@ -156,7 +160,8 @@ public class UserInterface implements Runnable{
 
     /**
      * Description: This method will return a panel that contains the "From: " label, the text box where the user will
-     * input the amount they want converted, and the measurment that the user wants to convert from.
+     * input the amount they want converted, and the measurment that the user wants to convert from. Note that this will
+     * be used by the Handler class for actions.
      *
      * @return panel that contains the 'from' label, textbox, and comboBox,
      */
@@ -169,8 +174,8 @@ public class UserInterface implements Runnable{
         JTextField fromTextField = new JTextField(10); //Where the user will input a number amount to convert
         JComboBox<String> fromComboBox = fromComboBox(); //The measurement to convert from
 
-        //Adding action listener to fromTextField
-        handler = new Handler();
+        //Adding an action listener
+        handler.addFromTextField(fromTextField);
         fromTextField.addActionListener(handler);
 
         //Here we add the components to the panel
@@ -178,7 +183,6 @@ public class UserInterface implements Runnable{
         panel.add(fromTextField);
         panel.add(fromComboBox);
 
-        //Adding an action listener
 
         //When method is called, it will return a panel that contains 'from' label, text box, and combo box
         return panel;
@@ -187,7 +191,7 @@ public class UserInterface implements Runnable{
     /**
      * Description: This method will return a JPanel that contains the "To: " label that alludes the user to select
      * the measurement they want to convert to, via a combo box, and a button that labeled "Convert" that will
-     * initiate the conversion.
+     * initiate the conversion. Note that this will be used by the Handler class for actions.
      *
      * @return panel that contains the 'to' label, comboBox, and convert button.
      */
@@ -201,7 +205,6 @@ public class UserInterface implements Runnable{
         JButton convertButton = new JButton("Convert"); //The convert button that will initiate the conversion
 
         //Adding action listener to button
-        handler = new Handler();
         convertButton.addActionListener(handler);
 
         //Here we add the components to the panel
