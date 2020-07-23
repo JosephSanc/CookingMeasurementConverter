@@ -49,7 +49,7 @@ public class Pounds {
      * @param pounds the amount of pounds we are trying to convert
      * @return the value of pounds when it is converter to milligrams
      */
-    public double poundsToMillograms(double pounds){
+    public double poundsToMilligrams(double pounds){
         return pounds * 453592.33;
     }
 

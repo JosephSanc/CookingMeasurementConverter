@@ -43,7 +43,6 @@ public class UserInterface implements Runnable{
         container.add(fromPanel());
         container.add(toPanel());
         container.add(conversionResultPanel());
-        container.add(disclaimerTextField());
     }
 
     /**
@@ -62,14 +61,14 @@ public class UserInterface implements Runnable{
         fromComboBox.addItem("Kilogram(kg)");
         fromComboBox.addItem("Gram(g)");
         fromComboBox.addItem("Milligram(mg)");
-        fromComboBox.addItem("Milliliters(ml)");
         fromComboBox.addItem("Ounce(oz)");
-        fromComboBox.addItem("Pound(lbs)");
+        fromComboBox.addItem("Pound(lb)");
         fromComboBox.addItem("Teaspoon(tsp)");
         fromComboBox.addItem("Tablespoon(tbsp)");
 
         //Adding action listener
         handler.addFromComboBox(fromComboBox);
+        fromComboBox.addActionListener(handler);
 
         //When method is called, it returns the comboBox
         return fromComboBox;
@@ -86,17 +85,8 @@ public class UserInterface implements Runnable{
         //Creates a combo box to add items to. In our case, those items are strings of units of measure.
         JComboBox<String> toComboBox = new JComboBox<>();
 
-
         //Here we add the strings of units of measure to the combo box as options for the user
         toComboBox.addItem("Select");
-        toComboBox.addItem("Kilogram(kg)");
-        toComboBox.addItem("Gram(g)");
-        toComboBox.addItem("Milligram(mg)");
-        toComboBox.addItem("Milliliters(ml)");
-        toComboBox.addItem("Ounce(oz)");
-        toComboBox.addItem("Pound(lbs)");
-        toComboBox.addItem("Teaspoon(tsp)");
-        toComboBox.addItem("Tablespoon(tbsp)");
 
         //Adding action listener
         handler.addToComboBox(toComboBox);
@@ -104,6 +94,8 @@ public class UserInterface implements Runnable{
         //When method is called, it returns the comboBox
         return toComboBox;
     }
+
+
 
     /**
      * Description: This method will return a panel that contains the textBox that will hold the converted measurment
@@ -130,31 +122,6 @@ public class UserInterface implements Runnable{
         panel.add(resultTextField);
 
         //When method is called, it will return a panel that contains the result label and text box.
-        return panel;
-    }
-
-    /**
-     * Description: This method will return a textfield that contains the label that will hold the disclaimer to the user
-     * when converting from volume to weight or the other way around. Note that this will be used by the Handler class
-     * for actions.
-     *
-     * @return panel with disclaimer textfield on it.
-     */
-    public JPanel disclaimerTextField(){
-        //The panel that we will add the disclaimer text field to
-        JPanel panel = new JPanel();
-
-        //The disclaimer textfield
-        JTextField disclaimerTextField = new JTextField("");//This disclaimer will remain empty until filled by action listener
-        disclaimerTextField.setEditable(false);
-
-        //adding actionListener to disclaimer text field
-        handler.addDisclaimerTextField(disclaimerTextField);
-
-        //Add disclaimer label to panel
-        panel.add(disclaimerTextField);
-
-        //return the panel
         return panel;
     }
 
@@ -205,6 +172,7 @@ public class UserInterface implements Runnable{
         JButton convertButton = new JButton("Convert"); //The convert button that will initiate the conversion
 
         //Adding action listener to button
+        handler.addConvertButton(convertButton);
         convertButton.addActionListener(handler);
 
         //Here we add the components to the panel

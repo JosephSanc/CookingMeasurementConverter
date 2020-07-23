@@ -37,3 +37,19 @@ a fraction manually).
 |    "*Conversion is from volume/mass to mass/volume                              |
 |     so conversion will be approximate but not exact" (JLabel or Dialogue Box)   |
 -----------------------------------------------------------------------------------
+
+Note to self: 07/22
+I started making the conversion on the GUI but then realized that not every 'from' conversion had corresponding
+'to' conversions for every single conversions. So I need to update the toComboBox depending on what is picked
+for the fromComboBox. I was able to update the toComboBox but the issue is that now, the action listener empties
+the toComboBox and gives it correct values when selecting a value in fromComboBox but it erases the toComboBox
+again when pressing the 'convert' button, since the fromComboBox and the button have the same action listener.
+Then I attempted to make another class that handles the restructuring of the toComboBox depending on what value
+is selected in the fromComboBox. Now there is a bug since that action listener works but it always thinks that
+'Select' is the value in fromComboBox, regardless if another value is selected after the GUI is launched. I need
+to fix that bug in order to proceed with the program. After that, I can comfortably make the conversions and finish
+the project. Remember to add a simple instructions label at the bottom telling the user to 1. Enter the measurement
+2. choose what unit of measure it is and 3. What unit of measure to convert to. Maybe include an example but that is
+towards the end of the project. The classes I modified were UserInterface (slightly), Handler, ToComboBox (but I
+think that one is irrelevent at this point), and I made the ComboBoxHandler class to change the toComboBox
+depending on what it selected in the fromComboBox(this is the class with the bug in the actionPerformed method).
