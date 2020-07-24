@@ -53,3 +53,21 @@ the project. Remember to add a simple instructions label at the bottom telling t
 towards the end of the project. The classes I modified were UserInterface (slightly), Handler, ToComboBox (but I
 think that one is irrelevent at this point), and I made the ComboBoxHandler class to change the toComboBox
 depending on what it selected in the fromComboBox(this is the class with the bug in the actionPerformed method).
+
+Note to self: 07/23
+I was able to fix the big by using getSource() in the Handler action listener to do specific actions depending
+on what is selected. For example, if I want to change the toComboBox depending on what is selected for fromComboBox,
+then I check the getSource() to see if the JComponent that is interacted with it fromComboBox. That way I can
+separate the actions of the fromComboBox and the convertButton. I also made a bunch of helper methods to
+change the toComboBox, depending on what is selected on fromComboBox. Those helper method start with "from" and
+proceed with the measurement (ie. fromKilo). I also made helper methods for the conversions to be made when
+the button is pressed. What is left to do is add the panel with steps 1-3 on how to use the GUI and the
+helper methods for Tablespoon and Teaspoon conversions. They're supposed to check if the decimal is equal to
+common cooking measurements such as 1/2 teaspoons, 1/4 tablespoons, and so on, and output the fraction
+instead of the decimal. Lastly, add a disclaimer by JOptionPane or something better when the user is trying
+to convert from volume to weight. Before you start on all that, be sure to complete documentation to all the
+new methods that were made on 07/23 (the day I'm writing this). Also, for finishing touches, change some methods
+to private so that there is better security. You're almost done!
+
+Note to self: 07/24
+Change the decimal result so that it stays in the second decimal place at the most.

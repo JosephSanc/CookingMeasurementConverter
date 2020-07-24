@@ -66,4 +66,9 @@ helper methods for Tablespoon and Teaspoon conversions. They're supposed to chec
 common cooking measurements such as 1/2 teaspoons, 1/4 tablespoons, and so on, and output the fraction
 instead of the decimal. Lastly, add a disclaimer by JOptionPane or something better when the user is trying
 to convert from volume to weight. Before you start on all that, be sure to complete documentation to all the
-new methods that were made on 07/23 (the day I'm writing this). You're almost done!
+new methods that were made on 07/23 (the day I'm writing this). Also, for finishing touches, change some methods
+to private so that there is better security. You're almost done!
+
+Note to self: 07/24
+Change the decimal result so that it stays in the second decimal place at the most. Also, when fractions are entered
+into the fromTextBox, the pop up occurs that something went wrong. So fix that.
