@@ -17,7 +17,7 @@ public class UserInterface implements Runnable{
     public void run() {
         //Setting up the frame
         frame = new JFrame("Welcome to the Cooking Measurement Converter"); //Title of the frame
-        frame.setPreferredSize(new Dimension(400, 300)); //Dimensions of the frams
+        frame.setPreferredSize(new Dimension(400, 250)); //Dimensions of the frame
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //Under what condition the frame will stop
 
@@ -36,7 +36,7 @@ public class UserInterface implements Runnable{
      */
     private void createComponents(Container container){
         //Creating the layout manager
-        GridLayout layout = new GridLayout(4, 1);
+        GridLayout layout = new GridLayout(3, 1);
         container.setLayout(layout);
 
         //Adding the components to the frame
@@ -183,5 +183,6 @@ public class UserInterface implements Runnable{
         //When this method is called, it will return a panel that contains 'to' label, combo box, and convert button.
         return panel;
     }
+
 
 }

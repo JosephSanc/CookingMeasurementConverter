@@ -71,4 +71,6 @@ to private so that there is better security. You're almost done!
 
 Note to self: 07/24
 Change the decimal result so that it stays in the second decimal place at the most. Also, when fractions are entered
-into the fromTextBox, the pop up occurs that something went wrong. So fix that.
+into the fromTextBox, the pop up occurs that something went wrong. So fix that. Consider getting rid of the volume
+to weight conversion disclaimer (or maybe have a circle with an 'i' pop up so that the user can see the pop up instead of having it
+forced in him/her.

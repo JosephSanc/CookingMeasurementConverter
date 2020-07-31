@@ -97,7 +97,7 @@ public class Handler implements ActionListener{
             convertTeaspoons(src);
             convertTablespoons(src);
         } catch (Exception exc){
-            JOptionPane.showMessageDialog(null, "Be sure to enter a number");
+            JOptionPane.showMessageDialog(null, "Be sure to enter a decimal number");
         }
     }
 
@@ -343,27 +343,22 @@ public class Handler implements ActionListener{
                 if(Objects.equals(toComboBox.getSelectedItem(), "Milligram(mg)")){ //Converts teaspoons to milligrams
                     String result = "" +
                             teaspoonsConversion.teaspoonsToMilligrams(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Kilogram(kg)")){ //Converts teaspoons to kilograms
                     String result = "" +
                             teaspoonsConversion.teaspoonsToKilograms(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Gram(g)")){ //Converts teaspoons to grams
                     String result = "" +
                             teaspoonsConversion.teaspoonsToGrams(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Ounce(oz)")){ //Converts teaspoons to ounces
                     String result = "" +
                             teaspoonsConversion.teaspoonsToOunces(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Fluid Ounce(fl oz)")){ //Converts teaspoons to fluid ounces
                     String result = "" +
                             teaspoonsConversion.teaspoonsToFluidOunces(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Tablespoon(tbsp)")){ //Converts teaspoons to tablespoons
                     String result = "" +
@@ -394,32 +389,27 @@ public class Handler implements ActionListener{
                 if(Objects.equals(toComboBox.getSelectedItem(), "Milligram(mg)")){ //Converts tablespoons to milligrams
                     String result = "" +
                             tablespoonsConversion.tablespoonsToMilligrams(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Kilogram(kg)")){ //Converts tablespoons to kilograms
                     String result = "" +
                             tablespoonsConversion.tablespoonsToKilograms(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Gram(g)")){ //Converts tablespoons to grams
                     String result = "" +
                             tablespoonsConversion.tablespoonsToGrams(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Ounce(oz)")){ //Converts tablespoons to ounces
                     String result = "" +
                             tablespoonsConversion.tablespoonsToOunces(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Fluid Ounce(fl oz)")){ //Converts tablespoons to fluid ounces
                     String result = "" +
                             tablespoonsConversion.tablespoonsToFluidOunces(Double.parseDouble(fromTextField.getText()));
-                    volumeToWeightDisclaimer();
                     resultsTextField.setText(result);
                 } else if(toComboBox.getSelectedItem().equals("Teaspoon(tsp)")){ //Converts tablespoons to teaspoons
                     String result = "" +
                             tablespoonsConversion.tablespoonsToTeaspoons(Double.parseDouble(fromTextField.getText()));
-                    canBeFraction(result);
+                    result = canBeFraction(result);
                     resultsTextField.setText(result);
                 } else {
                     JOptionPane.showMessageDialog(null, "Something went wrong");
@@ -525,22 +515,22 @@ public class Handler implements ActionListener{
      * @return a string result but as the fraction, instead of the decimal.
      */
     private String canBeFraction(String result){
-        if(Double.parseDouble(result) == 1/2){
+        if(Double.parseDouble(result) == 1.0/2){
             result = "1/2";
             return result;
-        } else if(Double.parseDouble(result) == 1/3){
+        } else if(Double.parseDouble(result) == 1.0/3){
             result = "1/3";
             return result;
-        } else if(Double.parseDouble(result) == 3/4){
+        } else if(Double.parseDouble(result) == 3.0/4){
             result = "3/4";
             return result;
-        } else if(Double.parseDouble(result) == 1/4){
+        } else if(Double.parseDouble(result) == 1.0/4){
             result = "1/4";
             return result;
-        } else if(Double.parseDouble(result) == 1/8){
+        } else if(Double.parseDouble(result) == 1.0/8){
             result = "1/8";
             return result;
-        } else if(Double.parseDouble(result) == 1/16){
+        } else if(Double.parseDouble(result) == 1.0/16){
             result = "1/16";
             return result;
         } else {
